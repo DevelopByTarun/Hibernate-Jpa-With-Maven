@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	<class name="com.collection.mapping.persistent.dto.FolderPersistentDTO" table="folder_collection_mstr">
+		
+		<id name="id" type="int">
+			<column name="folder_id" precision="4"/>
+			<generator class="increment"/>
+		</id>
+		
+		<property name="name" type="string">
+			<column name="folder_name" length="14" unique="true"/>
+		</property>
+		
+	<!-- tag for collection mapping -->	
+		<set name="files" table="folder_file_collection_mstr">
+			<key column="folderIdForeignKey"></key>
+				<composite-element class="com.collection.mapping.persistent.dto.FileCollectionDTO">
+				
+					<property name="size" type="int">
+						<column name="file_size" precision="8"></column>
+					</property>
+					
+					<property name="name" type="string">
+						<column name="file_name" length="14"></column>
+					</property>
+				
+				</composite-element>
+		</set>
+		
+	</class>
+</hibernate-mapping>

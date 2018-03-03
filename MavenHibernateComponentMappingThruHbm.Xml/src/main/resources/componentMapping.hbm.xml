@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	<class name="com.component.mapping.persistent.dto.EmployeePersistentDTO" table="employee_component_mstr">
+		
+		<id name="id" type="int">
+			<column name="emp_id" precision="2"/>
+			<generator class="increment"/>
+		</id>
+		
+		<property name="name" type="string">
+			<column name="emp_name" length="11" unique="true"/>
+		</property>
+		
+		<component name="empDetails" class="com.component.mapping.persistent.dto.EmployeeDetailsDTO">
+			<property name="designation" type="string">
+				<column name="emp_designation" length="15"/>
+			</property>
+			
+			<property name="company" type="string">
+				<column name="emp_company" length="15"/>
+			</property>
+			
+			<property name="salary" type="double">
+				<column name="emp_salary" precision="8" scale="2"/>
+			</property>
+		</component>
+		
+		<property name="city" type="string">
+			<column name="emp_city" length="11"/>
+		</property>
+		
+	</class>
+</hibernate-mapping>
