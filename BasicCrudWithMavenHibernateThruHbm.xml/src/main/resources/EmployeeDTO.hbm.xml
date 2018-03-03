@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+ <hibernate-mapping>
+ 	<class name="com.tarun.dto.EmployeeDTO" table="employee_mstr">
+ 	
+ 		<meta attribute="class-description">
+ 		This Class Contains Employee Details
+ 		</meta>
+ 	
+ 		<!-- primary key on id -->
+ 		<id name="id" type="int">
+ 			<column name="employee_id" length="4"/>
+ 		</id>
+ 		
+ 		<property name="firstname" type="string">
+ 			<column name="employee_firstname" length="11" unique="true"/>
+ 		</property>
+ 		
+ 		<property name="lastname" type="string">
+ 			<column name="employee_lastname" length="11"/>
+ 		</property>
+ 		
+ 		<property name="age" type="int">
+ 			<column name="employee_age" length="2"/>
+ 		</property>
+ 		
+ 		<property name="salary" type="double">
+ 			<column name="employee_salary" scale="6" precision="3"/>
+ 		</property>
+ 		
+ 	</class>
+ </hibernate-mapping>
