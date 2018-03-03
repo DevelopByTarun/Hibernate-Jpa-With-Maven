@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	<class name="com.tarun.persistent.BooksPersistent" table="books_mstr">
+	
+		<meta attribute="class-description">
+			This Class Contains Books_Mstr Table Details
+		</meta>
+		
+		<id name="id" type="int">
+			<column name="book_id" precision="4"/>
+			<generator class="increment"/>
+		</id>
+		
+		<property name="name" type="string">
+			<column name="book_name" length="16" unique="true"/>
+		</property>
+		
+		<property name="author" type="string">
+			<column name="book_author" length="16"/>
+		</property>
+		
+		<property name="publisher" type="string">
+			<column name="book_publisher" length="20"/>
+		</property>
+		
+		<property name="price" type="string">
+			<column name="book_price" length="10"/>
+		</property>
+	
+	</class>
+</hibernate-mapping>
