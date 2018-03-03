@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+ <hibernate-mapping>
+ 	<class name="com.association.mapping.ud.persistent.dto.BookPersistentDTO" table="book_onetoone_ud_fk_mstr">
+ 	
+ 		<meta attribute="class-description">
+ 		This Class Contains Book Details
+ 		</meta>
+ 	
+ 		<!-- primary key on id -->
+ 		<id name="bid" type="int">
+ 			<column name="book_id" precision="3"/>
+ 			<generator class="increment"/>
+ 		</id>
+ 		
+ 		<property name="title" type="string">
+ 			<column name="book_title" length="14" unique="true"/>
+ 		</property>
+ 		
+ 		<property name="publishedDate" type="date">
+ 			<column name="book_publishedDate"/>
+ 		</property>
+ 		
+ 		<many-to-one name="author" class="com.association.mapping.ud.persistent.dto.AuthorPersistentDTO" unique="true" column="author_id" cascade="all">
+ 		</many-to-one>
+ 		
+ 	</class>
+ </hibernate-mapping>

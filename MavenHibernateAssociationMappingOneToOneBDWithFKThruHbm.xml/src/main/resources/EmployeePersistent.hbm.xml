@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+ <hibernate-mapping>
+ 	<class name="com.association.mapping.bd.persistent.dto.EmployeePersistentDTO" table="employee_onetoone_bd_fk_mstr">
+ 	
+ 		<meta attribute="class-description">
+ 		This Class Contains Employee
+ 		</meta>
+ 	
+ 		<!-- primary key on id -->
+ 		<id name="eid" type="int">
+ 			<column name="employee_id" precision="3"/>
+ 			<generator class="increment"/>
+ 		</id>
+ 		
+ 		<property name="name" type="string">
+ 			<column name="employee_name" length="11" unique="true"/>
+ 		</property>
+ 		
+ 		<many-to-one name="address" class="com.association.mapping.bd.persistent.dto.AddressPersistentDTO" column="address_id" cascade="all">
+ 		</many-to-one>
+ 		
+ 		<!-- if we use this tag so no additional column will be enter in table
+ 		this tag is use in the situation of same or shared primary key -->
+ 		<!-- <one-to-one name="address" class="com.association.mapping.bd.persistent.dto.AddressPersistentDTO" cascade="all">
+ 		</one-to-one> -->
+ 		
+ 	</class>
+ </hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+ <hibernate-mapping>
+ 	<class name="com.association.mapping.ud.persistent.dto.AuthorPersistentDTO" table="author_onetoone_ud_fk_mstr">
+ 	
+ 		<meta attribute="class-description">
+ 		This Class Contains Author Details
+ 		</meta>
+ 	
+ 		<!-- primary key on id -->
+ 		<id name="aid" type="int">
+ 			<column name="author_id" precision="4"/>
+ 		</id>
+ 		
+ 		<property name="name" type="string">
+ 			<column name="author_name" length="11" unique="true"/>
+ 		</property>
+ 		
+ 		<property name="email" type="string">
+ 			<column name="author_email" length="20"/>
+ 		</property>
+ 		
+ 	</class>
+ </hibernate-mapping>
