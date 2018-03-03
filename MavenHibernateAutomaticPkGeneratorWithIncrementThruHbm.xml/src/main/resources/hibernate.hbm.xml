@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+	<class name="com.tarun.demo.persistent.CompanyPersistent" table="company_mstr">
+	
+		<meta attribute="class-description">
+			This Class Contains Customer_Mstr Table Details
+		</meta>
+		
+		<id name="id" type="int">
+			<column name="company_id" precision="4"/>
+			<generator class="increment"/>
+		</id>
+		
+		<property name="name" type="string">
+			<column name="company_name" length="11" unique="true"/>
+		</property>
+		
+		<property name="product" type="string">
+			<column name="company_product" length="20"/>
+		</property>
+		
+		<property name="address" type="string">
+			<column name="company_address" length="11"/>
+		</property>
+	
+	</class>
+</hibernate-mapping>
